@@ -1,13 +1,12 @@
-    # apphosting.yaml
-    # This file configures your Firebase App Hosting backend.
+# apphosting.yaml
+# This file configures your Firebase App Hosting backend.
 
-    build:
-      command: "npm install"
-      outputDirectory: "."
+build: # <-- No leading spaces here
+  command: "npm install"
+  outputDirectory: "."
 
-    env:
-      - variable: FIREBASE_SERVICE_ACCOUNT
-        secret: firebase-service-account-key
-        availability:
-          - RUNTIME
-    ```
+env: # <-- No leading spaces here
+  - variable: FIREBASE_SERVICE_ACCOUNT
+    secret: firebase-service-account-key
+    availability:
+      - RUNTIME
