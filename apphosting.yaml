@@ -1,0 +1,22 @@
+  # apphosting.yaml
+    # This file configures your Firebase App Hosting backend.
+
+    # --- ADD THIS BUILD SECTION ---
+    build:
+      command: "npm install"
+      outputDirectory: "." # This tells it to install packages in the root of your server project
+    # --- END BUILD SECTION ---
+
+    # Your environment variable configuration for Secret Manager
+    env:
+      - variable: FIREBASE_SERVICE_ACCOUNT
+        secret: firebase-service-account-key
+        availability:
+          - RUNTIME
+
+    # Optional: Cloud Run settings (if you have them, keep them. Otherwise, ignore or remove)
+    # runConfig:
+    #   timeoutSeconds: 300
+    #   cpu: 1
+    #   memoryMiB: 512
+    ```
