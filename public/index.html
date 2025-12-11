@@ -98,19 +98,6 @@
             align-items: flex-end;
         }
 
-        .signin-login a {
-            padding: 6px 12px;
-            border: 2px solid white;
-            border-radius: 6px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            background: transparent;
-            transition: 0.3s ease;
-            display: inline-block;
-            text-align: center;
-            white-space: nowrap;
-        }
 
         /* Additional CSS for Single-Page App (SPA) Content Switching */
         .content-section {
@@ -120,199 +107,168 @@
         .content-section:target {
             display: block;
         }
-        /* Default view if no hash is present (showing rankings) */
-        .container:first-of-type {
-            display: block;
-        }
-                .hero-section {
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .hero-section h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .hero-section p {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .content-section {
-            background: white;
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .content-section h2 {
-            color: #dc2626;
-            font-size: 32px;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #dc2626;
-            padding-bottom: 10px;
-        }
-
-        .content-section p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
+              /* About Section Styles */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
 
         .stat-card {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 8px;
             text-align: center;
-            border-top: 5px solid #dc2626;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid red;
         }
 
         .stat-card .number {
-            font-size: 48px;
+            font-size: 40px;
             font-weight: bold;
-            color: #dc2626;
-            margin-bottom: 10px;
+            color: red;
+            margin-bottom: 8px;
         }
 
         .stat-card .label {
-            font-size: 18px;
+            font-size: 16px;
             color: #666;
         }
 
         .mission-vision {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
 
         .mission-card {
-            background: linear-gradient(135deg, #fee 0%, #fdd 100%);
-            padding: 40px;
-            border-radius: 10px;
-            border-left: 5px solid #dc2626;
+            background: #ffe0e0;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid red;
         }
 
         .mission-card h3 {
-            color: #dc2626;
-            font-size: 24px;
-            margin-bottom: 15px;
+            color: red;
+            font-size: 20px;
+            margin-bottom: 12px;
         }
 
         .mission-card p {
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 15px;
+            line-height: 1.6;
             color: #333;
         }
 
-        .timeline {
-            position: relative;
-            padding: 40px 0;
+        /* Events Section Styles */
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
         }
 
-        .timeline-item {
+        .event-card {
             background: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-left: 5px solid #dc2626;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid red;
         }
 
-        .timeline-item .year {
-            font-size: 24px;
-            font-weight: bold;
-            color: #dc2626;
+        .event-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.2);
+        }
+
+        .event-header {
+            background: #ffe0e0;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .event-header .event-icon {
+            font-size: 50px;
             margin-bottom: 10px;
         }
 
-        .timeline-item h3 {
+        .event-header h3 {
+            font-size: 20px;
+            color: red;
+            margin-bottom: 8px;
+        }
+
+        .event-header .event-date {
+            font-size: 14px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .event-body {
+            padding: 20px;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .event-detail .icon {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        /* Download Section Styles */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .download-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid red;
+        }
+
+        .download-card .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .download-card h3 {
             font-size: 20px;
             margin-bottom: 10px;
             color: #333;
         }
 
-        .timeline-item p {
-            font-size: 16px;
+        .download-card p {
+            font-size: 14px;
             color: #666;
-            line-height: 1.6;
+            margin-bottom: 15px;
         }
 
-        .cta-section {
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            border-radius: 10px;
-            margin-top: 40px;
-        }
-
-        .cta-section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            border: none;
-            color: white;
-        }
-
-        .cta-section p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: white;
-        }
-
-        .cta-button {
+        .download-btn {
             display: inline-block;
-            background: white;
-            color: #dc2626;
-            padding: 15px 40px;
+            background: red;
+            color: white;
+            padding: 10px 25px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s;
         }
 
-        .cta-button:hover {
-            background: #fee;
-            transform: scale(1.05);
-        }
-
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-        }
-
-        footer p {
-            margin: 10px 0;
-        }
-
-        footer a {
-            color: #dc2626;
-            text-decoration: none;
+        .download-btn:hover {
+            background: #cc0000;
         }
     </style>
 </head>
@@ -510,9 +466,8 @@
 </div>
 
 <div id="about" class="about container content-section">
-    <h2>Who We Are</h2>
-    <p>The Badminton World Federation (BWF) is the international governing body responsible for leading and shaping the future of badminton across the globe. Established to unify and elevate the sport, the BWF oversees world-class tournaments, supports the growth of national badminton programs, and ensures the integrity and fairness of competition at every level.</p>
-    <p>Through its work with players, coaches, officials, and member associations, the organization continuously strives to create opportunities for athletes to excel and for fans to experience the excitement of badminton like never before.</p>
+    <h2>About</h2>
+    <p>The Badminton World Federation (BWF) is the international governing body responsible for leading and shaping the future of badminton across the globe. Established to unify and elevate the sport, the BWF oversees world-class tournaments, supports the growth of national badminton programs, and ensures the integrity and fairness of competition at every level. Through its work with players, coaches, officials, and member associations, the organization continuously strives to create opportunities for athletes to excel and for fans to experience the excitement of badminton like never before.</p>
 
     <div class="stats-grid">
         <div class="stat-card">
@@ -533,81 +488,122 @@
         </div>
     </div>
 
+    <h3>Our History</h3>
     <div class="mission-vision">
         <div class="mission-card">
-            <h3>🎯 Our Mission</h3>
-            <p>To develop and promote badminton globally, making it accessible to all while maintaining the highest standards of competition and sportsmanship.</p>
-        </div>
-        <div class="mission-card">
-            <h3>👁️ Our Vision</h3>
-            <p>To be the world's leading international federation, inspiring generations through the excitement and values of badminton.</p>
-        </div>
-        <div class="mission-card">
-            <h3>💎 Our Values</h3>
-            <p>Excellence, integrity, respect, unity, and innovation guide everything we do in the badminton community worldwide.</p>
-        </div>
-    </div>
-
-    <h2>Our History</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="year">1934</div>
-            <h3>BWF Founded</h3>
+            <h3> 1934 - BWF Founded</h3>
             <p>The International Badminton Federation (now BWF) was established with nine founding members to govern the sport internationally.</p>
         </div>
-        <div class="timeline-item">
-            <div class="year">1977</div>
-            <h3>World Championships Launched</h3>
+        <div class="mission-card">
+            <h3> 1977 - World Championships</h3>
             <p>The first BWF World Championships were held in Malmö, Sweden, establishing the premier event for badminton excellence.</p>
         </div>
-        <div class="timeline-item">
-            <div class="year">1992</div>
-            <h3>Olympic Sport</h3>
+        <div class="mission-card">
+            <h3> 1992 - Olympic Sport</h3>
             <p>Badminton made its Olympic debut at the Barcelona Games, elevating the sport's global profile and prestige.</p>
         </div>
-        <div class="timeline-item">
-            <div class="year">2006</div>
-            <h3>Name Change to BWF</h3>
-            <p>The organization was renamed the Badminton World Federation, reflecting its modern, global approach to governance.</p>
-        </div>
-        <div class="timeline-item">
-            <div class="year">2024</div>
-            <h3>Digital Innovation</h3>
-            <p>Launching new digital platforms and technology to enhance fan engagement and improve athlete performance tracking.</p>
-        </div>
-    </div>
-
-    <div class="cta-section">
-        <h2>Join the Badminton Community</h2>
-        <p>Discover tournaments, rankings, and the excitement of badminton worldwide</p>
-        <a href="index.html" class="cta-button">View Rankings</a>
     </div>
 </div>
 
-<footer>
-    <p>&copy; 2024 Badminton World Federation. All rights reserved.</p>
-    <p>
-        <a href="index.html">Rankings</a> | 
-        <a href="about.html">About</a> | 
-        <a href="events.html">Events</a> | 
-        <a href="download.html">Download</a>
-    </p>
-    <p>Contact: info@bwfworld.com</p>
-</footer>
-</div>
 
-<div id="events" class="Upcoming Events container content-section">
     <h2>Upcoming Events</h2>
-    <ul>
-        <li>All England Open</li>
-        <li>Indonesia Open</li>
-        <li>Malaysia Masters</li>
-    </ul>
+    
+    <div class="event-grid">
+        <div class="event-card">
+            <div class="event-header">
+                <div class="event-icon">🏸</div>
+                <h3>All England Open</h3>
+                <div class="event-date">March 12-17, 2025</div>
+            </div>
+            <div class="event-body">
+                <div class="event-detail">
+                    <span class="icon"></span>
+                    Birmingham, England
+                </div>
+                <div class="event-detail">
+                    <span class="icon"></span>
+                    Super 1000 Series
+                </div>
+                <div class="event-detail">
+                    <span class="icon"></span>
+                    $1,000,000 Prize Money
+                </div>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-header">
+                <div class="event-icon"></div>
+                <h3>Indonesia Open</h3>
+                <div class="event-date">June 10-15, 2025</div>
+            </div>
+            <div class="event-body">
+                <div class="event-detail">
+                    <span class="icon"></span>
+                    Jakarta, Indonesia
+                </div>
+                <div class="event-detail">
+                    <span class="icon"></span>
+                    Super 1000 Series
+                </div>
+                <div class="event-detail">
+                    <span class="icon"></span>
+                    $1,200,000 Prize Money
+                </div>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="event-header">
+                <div class="event-icon">🏸</div>
+                <h3>Malaysia Masters</h3>
+                <div class="event-date">August 5-10, 2025</div>
+            </div>
+            <div class="event-body">
+                <div class="event-detail">
+                    <span class="icon"></span>
+                    Kuala Lumpur, Malaysia
+                </div>
+                <div class="event-detail">
+                    <span class="icon"></span>
+                    Super 750 Series
+                </div>
+                <div class="event-detail">
+                    <span class="icon"></span>
+                    $750,000 Prize Money
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<!-- DOWNLOAD SECTION -->
 <div id="download" class="container content-section">
     <h2>Download</h2>
-    <p>Information about downloading the BWF app or content will be available here.</p>
+    <p>Get the official BWF app for your device.</p>
+    
+    <div class="download-grid">
+        <div class="download-card">
+            <div class="icon">📱</div>
+            <h3>iOS App</h3>
+            <p>Available on the App Store</p>
+            <a href="#" class="download-btn">Download</a>
+        </div>
+        
+        <div class="download-card">
+            <div class="icon">🤖</div>
+            <h3>Android App</h3>
+            <p>Available on Google Play</p>
+            <a href="#" class="download-btn">Download</a>
+        </div>
+        
+        <div class="download-card">
+            <div class="icon">💻</div>
+            <h3>Web Version</h3>
+            <p>Access anywhere online</p>
+            <a href="#" class="download-btn">Open Web App</a>
+        </div>
+    </div>
 </div>
 
 </body>
