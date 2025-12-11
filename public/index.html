@@ -1,132 +1,367 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purrfect Memories PWA</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Link external CSS file -->
-    <link rel="stylesheet" href="style.css">
+    <title>BWF World</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        header {
+            background-image: url('https://badmintoneurope.com/documents/20117/137791/NewsImage-aspx-msgid-8383434.jpg/49dd9ed9-5364-439e-02c6-14fed9c68938?version=1.0&t=1737399184027');
+            background-size: contain;
+            background-color: red;
+            background-position: left center;
+            background-repeat: no-repeat;
+            height: 130px;
+            width: 100%;
+            border-bottom: 25px solid rgb(150, 11, 11);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 10px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: black;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            font-size: large;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .category-tabs a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        .category-tabs a:hover {
+            background: red;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .signin-login a {
+            padding: 6px 12px;
+            border: 2px solid white;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            background: transparent;
+            transition: 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .signin-login a:hover {
+            background: white;
+            color: red;
+        }
+
+        .signin-login {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        /* Additional CSS for Single-Page App (SPA) Content Switching */
+        .content-section {
+            display: none;
+        }
+        /* Show the target section when URL hash matches ID */
+        .content-section:target {
+            display: block;
+        }
+        /* Default view if no hash is present (showing rankings) */
+        .container:first-of-type {
+            display: block;
+        }
+    </style>
 </head>
-<body class="min-h-screen p-4 sm:p-8">
 
-    <div class="container mx-auto">
-        <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-violet-700">Purrfect Memories 😻</h1>
-            <p id="headerSubtitle" class="text-xl text-gray-600 mt-2">Sign in to share your cat moments!</p>
-            <div id="userInfo" class="text-sm text-gray-500 mt-2">Initializing...</div>
-        </header>
+<body>
 
-        <!-- --- AUTHENTICATION SCREEN --- -->
-        <div id="authScreen" class="flex justify-center items-center h-full pt-16">
-            <div class="bg-white p-8 rounded-xl card max-w-sm w-full space-y-6">
-                <h2 class="text-2xl font-semibold text-gray-800 text-center">Welcome Back!</h2>
-                <div id="authMessage" class="hidden p-3 rounded-lg text-sm" role="alert"></div>
-                
-                <form id="authForm" class="space-y-4">
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                        <input type="email" id="email" required placeholder="name@example.com"
-                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-violet-500 focus:border-violet-500">
-                    </div>
-                    <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                        <input type="password" id="password" required placeholder="min 6 characters"
-                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-violet-500 focus:border-violet-500">
-                    </div>
-                    
-                    <button type="submit" data-action="login"
-                            class="w-full py-3 px-4 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-lg transition duration-150 ease-in-out disabled:opacity-50">
-                        Log In
-                    </button>
-                    
-                    <button type="button" data-action="signup"
-                            class="w-full py-3 px-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold rounded-lg transition duration-150 ease-in-out">
-                        Sign Up (New Account)
-                    </button>
-                </form>
-            </div>
-        </div>
+<header>
+    <nav class="main-nav">
+        <a href="#rankings" class="tab-link">Rankings</a>
+        <a href="#chat" class="tab-link">Chat</a>
+        <a href="#about" class="tab-link">About</a>
+        <a href="#events" class="tab-link">Events</a>
+        <a href="#download" class="tab-link">Download</a>
+    </nav>
 
-        <!-- --- GALLERY SCREEN (Hidden until logged in) --- -->
-        <div id="galleryScreen" class="hidden">
-            <div class="text-right mb-4">
-                <button id="logoutBtn" class="py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition duration-150 ease-in-out text-sm">
-                    Log Out
-                </button>
-            </div>
-            
-            <!-- Main Layout: Upload and Search -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Upload Panel -->
-                <div class="lg:col-span-1 p-6 bg-white rounded-xl card h-fit sticky top-4">
-                    <h2 class="text-2xl font-semibold mb-4 text-gray-800 border-b pb-2">New Cat Photo</h2>
+<div class="signin-login">
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Log In</a>
+    </div>
+</header>
 
-                    <div id="uploadMessage" class="hidden p-3 mb-4 rounded-lg text-sm" role="alert"></div>
+<div id="rankings" class="container content-section">
 
-                    <form id="uploadForm" class="space-y-4">
-                        
-                        <!-- 1. IMAGE UPLOAD & PREVIEW -->
-                        <div class="space-y-3">
-                            <div>
-                                <label for="imageUpload" class="block text-sm font-medium text-gray-700 mb-1">Select Image</label>
-                                <input type="file" id="imageUpload" accept="image/*" required class="w-full text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 p-2 text-sm">
-                            </div>
+    <h2>Ranking System</h2>
 
-                            <!-- Image Preview Area -->
-                            <div id="imagePreviewContainer" class="hidden mt-2 border-2 border-dashed border-gray-300 rounded-lg p-2 bg-gray-50">
-                                <p class="text-sm text-gray-500 mb-2">Preview:</p>
-                                <img id="imagePreview" src="#" alt="Image Preview" class="w-full max-h-48 object-contain rounded-lg">
-                            </div>
-                        </div>
-                        
-                        <!-- 2. Tag Selector Area -->
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Select Tags (Click to select)</label>
-                            <div id="tagSelector" class="flex flex-wrap gap-2 p-3 border border-gray-300 rounded-lg bg-gray-50 max-h-48 overflow-y-auto">
-                                <!-- Tags will be dynamically injected here by JavaScript -->
-                            </div>
-                            
-                            <!-- Input for custom user-generated tags -->
-                            <label for="customTags" class="block text-sm font-medium text-gray-700 mt-4 mb-1">Or add your own tags (separate with commas)</label>
-                            <input type="text" id="customTags" placeholder="e.g., hungry, funny expression, tuxedo cat"
-                                        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-violet-500 focus:border-violet-500">
-                                        
-                            <input type="hidden" id="selectedTagsHidden">
-                        </div>
-
-                        <button type="submit" id="submitBtn"
-                                 class="w-full py-3 px-4 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-lg transition duration-150 ease-in-out disabled:opacity-50">
-                            Upload Photo
-                        </button>
-                        <div id="loadingIndicator" class="hidden text-center text-violet-600 font-medium">Processing image...</div>
-                    </form>
-                </div>
-
-                <!-- Gallery and Search Panel -->
-                <div class="lg:col-span-2 space-y-6">
-                    <!-- 3. SEARCH BAR (Now actively filters on input) -->
-                    <div class="p-4 bg-white rounded-xl card flex items-center shadow-lg">
-                        <svg class="w-5 h-5 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                        <input type="text" id="searchTags" placeholder="Search by tags (e.g., kitten, sleeping)"
-                               class="w-full text-lg p-1 focus:outline-none focus:ring-0 text-gray-800 bg-white" oninput="filterImages(this.value.trim())">
-                    </div>
-
-                    <!-- Cat Gallery -->
-                    <h2 class="text-2xl font-semibold text-gray-800">Cat Gallery (<span id="countDisplay">0</span> results)</h2>
-                    <div id="catGallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-h-[80vh] overflow-y-auto p-2">
-                        <!-- Images will be inserted here -->
-                    </div>
-                    <div id="noResults" class="hidden text-center text-gray-500 py-12">
-                        <p class="text-xl">No cat memories found matching your search. Try different tags!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="category-tabs">
+        <a href="#men-singles">Men's Singles</a>
+        <a href="#men-doubles">Men's Doubles</a>
+        <a href="#women-singles">Women's Singles</a>
+        <a href="#women-doubles">Women's Doubles</a>
+        <a href="#mixed-doubles">Mixed Doubles</a>
     </div>
 
-    <!-- Link external JavaScript file, loaded as a module for Firebase -->
-    <script type="module" src="script.js"></script>
+    <div id="men-singles" class="listings">
+        <h3>Men's Singles Rankings</h3>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Nation</th>
+                <th>Points</th>
+            </tr>
+            <tr><td>1</td><td>Player A</td><td>Korea</td><td>92822</td></tr>
+            <tr><td>2</td><td>Player B</td><td>China</td><td>91200</td></tr>
+            <tr><td>3</td><td>Player C</td><td>China</td><td>90022</td></tr>
+            <tr><td>4</td><td>Player D</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>5</td><td>Player E</td><td>Chinese Tapie</td><td>88400</td></tr>
+            <tr><td>6</td><td>Player A</td><td>China</td><td>92822</td></tr>
+            <tr><td>7</td><td>Player B</td><td>Indonesia</td><td>91200</td></tr>
+            <tr><td>8</td><td>Player C</td><td>Japan</td><td>90022</td></tr>
+            <tr><td>9</td><td>Player D</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>10</td><td>Player E</td><td>Korea</td><td>88400</td></tr>
+        </table>
+    </div>
+
+    <div id="men-doubles" class="listings" style="display:none;">
+        <h3>Men's Doubles Rankings</h3>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Nation</th>
+                <th>Points</th>
+            </tr>
+            <tr><td>1</td><td>Player A Player A</td><td>China</td><td>92822</td></tr>
+            <tr><td>2</td><td>Player B Player B</td><td>Indonesia</td><td>91200</td></tr>
+            <tr><td>3</td><td>Player C Player C</td><td>Japan</td><td>90022</td></tr>
+            <tr><td>4</td><td>Player D Player D</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>5</td><td>Player E Player E</td><td>Korea</td><td>88400</td></tr>
+            <tr><td>6</td><td>Player F Player F</td><td>China</td><td>92822</td></tr>
+            <tr><td>7</td><td>Player G Player G</td><td>Indonesia</td><td>91200</td></tr>
+            <tr><td>8</td><td>Player H Player H</td><td>Japan</td><td>90022</td></tr>
+            <tr><td>9</td><td>Player I Player I</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>10</td><td>Player J Player J</td><td>Korea</td><td>88400</td></tr>
+        </table>
+    </div>
+
+    <div id="women-singles" class="listings" style="display:none;">
+        <h3>Women's Singles Rankings</h3>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Nation</th>
+                <th>Points</th>
+            </tr>
+            <tr><td>1</td><td>Player A</td><td>Korea</td><td>92822</td></tr>
+            <tr><td>2</td><td>Player B</td><td>China</td><td>91200</td></tr>
+            <tr><td>3</td><td>Player C</td><td>China</td><td>90022</td></tr>
+            <tr><td>4</td><td>Player D</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>5</td><td>Player E</td><td>Chinese Tapie</td><td>88400</td></tr>
+            <tr><td>6</td><td>Player A</td><td>China</td><td>92822</td></tr>
+            <tr><td>7</td><td>Player B</td><td>Indonesia</td><td>91200</td></tr>
+            <tr><td>8</td><td>Player C</td><td>Japan</td><td>90022</td></tr>
+            <tr><td>9</td><td>Player D</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>10</td><td>Player E</td><td>Korea</td><td>88400</td></tr>
+        </table>
+    </div>
+
+    <div id="women-doubles" class="listings" style="display:none;">
+        <h3>Women's Doubles Rankings</h3>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Nation</th>
+                <th>Points</th>
+            </tr>
+            <tr><td>1</td><td>Player A Player A</td><td>China</td><td>92822</td></tr>
+            <tr><td>2</td><td>Player B Player B</td><td>Indonesia</td><td>91200</td></tr>
+            <tr><td>3</td><td>Player C Player C</td><td>Japan</td><td>90022</td></tr>
+            <tr><td>4</td><td>Player D Player D</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>5</td><td>Player E Player E</td><td>Korea</td><td>88400</td></tr>
+            <tr><td>6</td><td>Player F Player F</td><td>China</td><td>92822</td></tr>
+            <tr><td>7</td><td>Player G Player G</td><td>Indonesia</td><td>91200</td></tr>
+            <tr><td>8</td><td>Player H Player H</td><td>Japan</td><td>90022</td></tr>
+            <tr><td>9</td><td>Player I Player I</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>10</td><td>Player J Player J</td><td>Korea</td><td>88400</td></tr>
+        </table>
+    </div>
+
+    <div id="mixed-doubles" class="listings" style="display:none;">
+        <h3>Mixed Doubles Rankings</h3>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Nation</th>
+                <th>Points</th>
+            </tr>
+            <tr><td>1</td><td>Player A Player A</td><td>China</td><td>92822</td></tr>
+            <tr><td>2</td><td>Player B Player B</td><td>Indonesia</td><td>91200</td></tr>
+            <tr><td>3</td><td>Player C Player C</td><td>Japan</td><td>90022</td></tr>
+            <tr><td>4</td><td>Player D Player D</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>5</td><td>Player E Player E</td><td>Korea</td><td>88400</td></tr>
+            <tr><td>6</td><td>Player F Player F</td><td>China</td><td>92822</td></tr>
+            <tr><td>7</td><td>Player G Player G</td><td>Indonesia</td><td>91200</td></tr>
+            <tr><td>8</td><td>Player H Player H</td><td>Japan</td><td>90022</td></tr>
+            <tr><td>9</td><td>Player I Player I</td><td>Denmark</td><td>89733</td></tr>
+            <tr><td>10</td><td>Player J Player J</td><td>Korea</td><td>88400</td></tr>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab switching for main nav
+            const tabLinks = document.querySelectorAll('.main-nav .tab-link');
+            const sections = document.querySelectorAll('.content-section');
+            function showSection(id) {
+                sections.forEach(sec => {
+                    sec.style.display = (sec.id === id) ? 'block' : 'none';
+                });
+            }
+            function handleNavClick(e) {
+                e.preventDefault();
+                const hash = e.target.getAttribute('href').replace('#', '');
+                showSection(hash);
+                history.replaceState(null, null, '#' + hash);
+            }
+            tabLinks.forEach(link => link.addEventListener('click', handleNavClick));
+            // Show section on load based on hash
+            const initial = window.location.hash ? window.location.hash.substring(1) : 'rankings';
+            showSection(initial);
+            window.addEventListener('hashchange', () => {
+                const hash = window.location.hash.substring(1);
+                showSection(hash);
+            });
+
+            // Category tab switching inside rankings
+            const tabs = document.querySelectorAll('.category-tabs a');
+            const rankingSections = document.querySelectorAll('.listings');
+            const showRanking = (targetId) => {
+                rankingSections.forEach(section => {
+                    section.style.display = section.id === targetId.substring(1) ? 'block' : 'none';
+                });
+            };
+            const defaultTarget = window.location.hash.includes('-') ? window.location.hash : tabs[0].getAttribute('href');
+            showRanking(defaultTarget);
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showRanking(e.target.getAttribute('href'));
+                    history.replaceState(null, null, e.target.getAttribute('href'));
+                });
+            });
+            window.addEventListener('hashchange', () => {
+                if (window.location.hash.includes('-')) {
+                    showRanking(window.location.hash);
+                }
+            });
+        });
+    </script>
+
+</div>
+
+<div id="chat" class="container content-section">
+    <h2>Live Chat</h2>
+    <p>Chat feature will be connected to database later.</p>
+</div>
+
+
+<div id="about" class="about container content-section">
+    <h2>About</h2>
+    <p>The Badminton World Federation (BWF) is the international governing body responsible for leading and shaping the future of badminton
+        across the globe. Established to unify and elevate the sport, the BWF oversees world-class tournaments, supports the growth of
+        national badminton programs, and ensures the integrity and fairness of competition at every level. Through its work with players,
+        coaches, officials, and member associations, the organization continuously strives to create opportunities for athletes to excel and
+        for fans to experience the excitement of badminton like never before.</p>
+
+    <p>ill continue this later</p>
+</div>
+
+<div id="events" class="Upcoming Events container content-section">
+    <h2>Upcoming Events</h2>
+    <ul>
+        <li>All England Open</li>
+        <li>Indonesia Open</li>
+        <li>Malaysia Masters</li>
+    </ul>
+</div>
+
+<div id="download" class="container content-section">
+    <h2>Download</h2>
+    <p>Information about downloading the BWF app or content will be available here.</p>
+</div>
+
 </body>
 </html>
