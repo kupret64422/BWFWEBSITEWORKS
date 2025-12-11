@@ -1,0 +1,17 @@
+rules_version = '2';
+service firebase.storage {
+match /b/{bucket}/o {
+
+// Allow read/write access to cat photos, scoped by the user's ID
+match /cat_photos/{userId}/{allPaths=**} {
+  allow read, write: if request.auth != null && request.auth.uid == userId;
+}
+
+// Fallback: Prevent unauthenticated users from accessing other areas
+match /{allPaths=**} {
+  allow read, write: if false;
+}
+
+
+}
+}
