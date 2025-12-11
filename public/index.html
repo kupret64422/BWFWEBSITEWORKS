@@ -124,6 +124,196 @@
         .container:first-of-type {
             display: block;
         }
+                .hero-section {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .content-section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .content-section h2 {
+            color: #dc2626;
+            font-size: 32px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #dc2626;
+            padding-bottom: 10px;
+        }
+
+        .content-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 5px solid #dc2626;
+        }
+
+        .stat-card .number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .label {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .mission-card {
+            background: linear-gradient(135deg, #fee 0%, #fdd 100%);
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #dc2626;
+        }
+
+        .mission-card h3 {
+            color: #dc2626;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .mission-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #dc2626;
+        }
+
+        .timeline-item .year {
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .timeline-item p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            border: none;
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #dc2626;
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #fee;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #dc2626;
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -313,21 +503,97 @@
 
 </div>
 
-<div id="chat" class="container content-section">
-    <h2>Live Chat</h2>
-    <p>Chat feature will be connected to database later.</p>
+<div id="about" class="about container content-section">
+<div class="hero-section">
+    <h1>About BWF</h1>
+    <p>The international governing body for badminton worldwide</p>
 </div>
 
-
 <div id="about" class="about container content-section">
-    <h2>About</h2>
-    <p>The Badminton World Federation (BWF) is the international governing body responsible for leading and shaping the future of badminton
-        across the globe. Established to unify and elevate the sport, the BWF oversees world-class tournaments, supports the growth of
-        national badminton programs, and ensures the integrity and fairness of competition at every level. Through its work with players,
-        coaches, officials, and member associations, the organization continuously strives to create opportunities for athletes to excel and
-        for fans to experience the excitement of badminton like never before.</p>
+    <h2>Who We Are</h2>
+    <p>The Badminton World Federation (BWF) is the international governing body responsible for leading and shaping the future of badminton across the globe. Established to unify and elevate the sport, the BWF oversees world-class tournaments, supports the growth of national badminton programs, and ensures the integrity and fairness of competition at every level.</p>
+    <p>Through its work with players, coaches, officials, and member associations, the organization continuously strives to create opportunities for athletes to excel and for fans to experience the excitement of badminton like never before.</p>
 
-    <p>ill continue this later</p>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="number">193</div>
+            <div class="label">Member Countries</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">500+</div>
+            <div class="label">Annual Tournaments</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">220M</div>
+            <div class="label">Global Fans</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">50+</div>
+            <div class="label">Years of Excellence</div>
+        </div>
+    </div>
+
+    <div class="mission-vision">
+        <div class="mission-card">
+            <h3>🎯 Our Mission</h3>
+            <p>To develop and promote badminton globally, making it accessible to all while maintaining the highest standards of competition and sportsmanship.</p>
+        </div>
+        <div class="mission-card">
+            <h3>👁️ Our Vision</h3>
+            <p>To be the world's leading international federation, inspiring generations through the excitement and values of badminton.</p>
+        </div>
+        <div class="mission-card">
+            <h3>💎 Our Values</h3>
+            <p>Excellence, integrity, respect, unity, and innovation guide everything we do in the badminton community worldwide.</p>
+        </div>
+    </div>
+
+    <h2>Our History</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="year">1934</div>
+            <h3>BWF Founded</h3>
+            <p>The International Badminton Federation (now BWF) was established with nine founding members to govern the sport internationally.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="year">1977</div>
+            <h3>World Championships Launched</h3>
+            <p>The first BWF World Championships were held in Malmö, Sweden, establishing the premier event for badminton excellence.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="year">1992</div>
+            <h3>Olympic Sport</h3>
+            <p>Badminton made its Olympic debut at the Barcelona Games, elevating the sport's global profile and prestige.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="year">2006</div>
+            <h3>Name Change to BWF</h3>
+            <p>The organization was renamed the Badminton World Federation, reflecting its modern, global approach to governance.</p>
+        </div>
+        <div class="timeline-item">
+            <div class="year">2024</div>
+            <h3>Digital Innovation</h3>
+            <p>Launching new digital platforms and technology to enhance fan engagement and improve athlete performance tracking.</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Join the Badminton Community</h2>
+        <p>Discover tournaments, rankings, and the excitement of badminton worldwide</p>
+        <a href="index.html" class="cta-button">View Rankings</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Badminton World Federation. All rights reserved.</p>
+    <p>
+        <a href="index.html">Rankings</a> | 
+        <a href="about.html">About</a> | 
+        <a href="events.html">Events</a> | 
+        <a href="download.html">Download</a>
+    </p>
+    <p>Contact: info@bwfworld.com</p>
+</footer>
 </div>
 
 <div id="events" class="Upcoming Events container content-section">
